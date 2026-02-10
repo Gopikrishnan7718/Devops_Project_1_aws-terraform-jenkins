@@ -75,7 +75,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy (ASG Instance Refresh)') {
+        stage('Deploy') {
             steps {
                 withAWS(credentials: 'aws-jenkins-creds', region: "${AWS_REGION}") {
                     sh '''
