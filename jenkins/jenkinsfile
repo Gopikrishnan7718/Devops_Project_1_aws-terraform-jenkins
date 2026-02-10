@@ -12,6 +12,7 @@ pipeline {
         ARTIFACT_NAME   = "node-app-${BUILD_NUMBER}.zip"
         AWS_REGION      = "us-east-1"
         S3_BUCKET       = "devops-artifact-bucket-7718"
+        ASG_NAME        = "terraform-asg"
     }
 
     stages {
@@ -74,11 +75,22 @@ pipeline {
                 }
             }
         }
+        stage('Deploy (ASG Instance Refresh)') {
+            steps {
+                withAWS(credentials: 'aws-jenkins-creds', region: "${AWS_REGION}") {
+                    sh '''
+                      aws autoscaling start-instance-refresh \
+                        --auto-scaling-group-name "$ASG_NAME" \
+                        --preferences MinHealthyPercentage=90,InstanceWarmup=300
+                    '''
+                }
+            }
+        }
     }
 
     post {
         always {
-            cleanWS()
+            cleanWs()
         }
 
         success {

@@ -2,6 +2,10 @@
 **/.terraform/
 *.tfstate
 .tfstate.
+terraform.tfstate.*
+terraform.tfstate
+**/*.tfstate
+**/*.tfstate.*
 crash.log
 crash.*.log
 *.tfvars

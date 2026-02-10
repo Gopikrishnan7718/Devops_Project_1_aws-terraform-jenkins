@@ -26,3 +26,10 @@ variable "artifact_bucket_name" {
   default = "devops-artifact-bucket-7718"
 }
 
+variable "asg_name" {
+  description = "Auto Scaling Group name"
+  type        = string
+  default     = "terraform-asg"
+}
+
+

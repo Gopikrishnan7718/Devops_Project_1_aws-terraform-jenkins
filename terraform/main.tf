@@ -229,6 +229,7 @@ resource "aws_lb_listener" "listener" {
 }
 
 resource "aws_autoscaling_group" "asg" {
+  name = var.asg_name
   min_size            = 1
   max_size            = 2
   desired_capacity    = 2
@@ -256,3 +257,5 @@ resource "aws_s3_bucket_versioning" "artifacts_versioning" {
     status = "Enabled"
   }
 }
+
+
