@@ -13,7 +13,7 @@ Application Load Balancer with Auto Scaling.
 Traffic Flow:
 
 User
- ↓
+8+ ↓
 Internet Gateway
  ↓
 Application Load Balancer (Public Subnet)
@@ -53,6 +53,7 @@ Terraform Remote State → S3 bucket + DynamoDB (state lock)
 │   └── variables.tf   # Input variables
 └── .gitignore
 ```
+
 
 ## CI/CD Workflow
 
