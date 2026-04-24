@@ -2,8 +2,7 @@
 
 ## Project Overview
 
-A production-style DevOps project where infrastructure provisioning and 
-application deployment are fully automated.
+A production-style DevOps project where infrastructure provisioning and application deployment are automated using Terraform and Jenkins.
 
 Terraform provisions all AWS infrastructure. Jenkins runs the CI/CD pipeline. 
 The Node.js application is deployed to EC2 instances behind an 
@@ -33,26 +32,27 @@ Terraform Remote State → S3 bucket + DynamoDB (state lock)
 
 ## Tech Stack
 
-| Category | Tool |
-
-| Cloud | AWS (EC2, VPC, S3, IAM, ALB, Auto Scaling) |
-| IaC | Terraform |
-| CI/CD | Jenkins |
-| App | Node.js |
-| Scripting | Bash (user-data) |
-| Version Control | Git & GitHub |
+| Category        | Tool                                        |
+|-----------------|---------------------------------------------|
+| Cloud           | AWS (EC2, VPC, S3, IAM, ALB, Auto Scaling)  |
+| IaC             | Terraform                                   |
+| CI/CD           | Jenkins (Docker-based build environment)    |
+| App             | Node.js                                     |
+| Scripting       | Bash (user-data)                            |
+| Version Control | Git & GitHub                                |
 
 ## Repository Structure
 
+```
 ├── app/               # Node.js application
-├── bootstrap/         # Terraform config for S3 remote state bucket and and DynamoDB state lock table
+├── bootstrap/         # Terraform config for S3 remote state bucket and DynamoDB state lock table
 ├── jenkins/           # Jenkinsfile and pipeline config
 ├── terraform/
 │   ├── main.tf        # All infrastructure resources
 │   ├── backend.tf     # S3 remote state config
 │   └── variables.tf   # Input variables
 └── .gitignore
-
+```
 
 ## CI/CD Workflow
 
