@@ -84,6 +84,7 @@ Terraform Remote State → S3 bucket + DynamoDB (state lock)
 
 ## Future Improvements
 
+- Add GitHub webhook to auto-trigger Jenkins pipeline on code push
 - Containerize app with Docker, push to ECR
 - Deploy on Kubernetes (EKS)
 - Add multi-environment setup (Dev / Stage / Prod)
