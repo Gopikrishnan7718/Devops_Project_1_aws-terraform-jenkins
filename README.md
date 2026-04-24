@@ -10,18 +10,19 @@ Application Load Balancer with Auto Scaling.
 
 ## Architecture
 
-Traffic Flow:
-
+**Traffic Flow:**
+```
 User
-8+ ↓
+ ↓
 Internet Gateway
  ↓
 Application Load Balancer (Public Subnet)
  ↓
 Auto Scaling Group — EC2 (Private Subnet)
+```
 
-CI/CD + State Flow:
-
+**CI/CD + State Flow:**
+```
 Jenkins
  ↓
 S3 (Artifact Storage)
@@ -29,6 +30,7 @@ S3 (Artifact Storage)
 Instance Refresh → New EC2 pulls artifact from S3
 
 Terraform Remote State → S3 bucket + DynamoDB (state lock)
+```
 
 ## Tech Stack
 
